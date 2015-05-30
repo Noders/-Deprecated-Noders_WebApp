@@ -1,0 +1,46 @@
+<div class="row border-bottom" data-ng-controller="HeaderController">
+    <nav class="navbar navbar-static-top white-bg" role="navigation">
+        <div class="navbar-header">
+            <a href="/#!/">
+                <img src="/lib/custom/img/logoNoisegraspBig.old2.png" class="logo-img">
+                
+            </a>
+            <!--span minimaliza-sidebar></span>
+            <form role="search" class="navbar-form-custom" method="post" action="">
+                <div class="form-group">
+                    <input type="text" placeholder="Busca en tus campañas..." class="form-control" name="top-search" id="top-search">
+                </div>
+            </form-->
+        </div>
+        <ul class="nav navbar-top-links navbar-right" data-ng-hide="authentication.user">
+            <li ui-route="/signup">
+                <a href="/#!/signup">Registrate</a>
+            </li>
+            <li class="divider-vertical"></li>
+            <li ui-route="/signin">
+                <a href="/#!/signin">Ingresa</a>
+            </li>
+        </ul>
+        <ul class="nav navbar-top-links navbar-right" data-ng-show="authentication.user">
+            <li class="dropdown">
+
+                <a href="#" class="dropdown-toggle user" data-toggle="dropdown">
+                    <i class="noisegrasp-user icon"></i>
+                    <span data-ng-bind="authentication.user.displayName" class="name"></span> <b class="caret"></b>
+                </a>
+                <ul class="dropdown-menu">
+                    <li>
+                        <a href="/#!/settings/profile">Perfil</a>
+                    </li>
+                    <li data-ng-show="authentication.user.provider === 'local'">
+                        <a href="/#!/settings/password">Cambiar contraseña</a>
+                    </li>
+                    <li class="divider"></li>
+                    <li>
+                        <a href="/auth/signout">Salir</a>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </nav>
+</div>
