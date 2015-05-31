@@ -1,12 +1,13 @@
 var webpack = require("webpack");
 var path = require("path");
+var ngAnnotatePlugin = require('ng-annotate-webpack-plugin');
 
 module.exports = {
     context: __dirname + '/app',
     entry: './index.js',
     output: {
-        path: __dirname + '/app/dist',
-        filename: 'noders.js'
+        path: __dirname + '/app',
+        filename: 'dist/noders.js'
     },
     module: {
         loaders: [
@@ -36,6 +37,12 @@ module.exports = {
                 test: /\.svg(\?v=\d+\.\d+\.\d+)?$/,
                 loader: "url?limit=10000&minetype=image/svg+xml"
             }, {
+                test: /\.png$/,
+                loader: "url-loader?limit=100000"
+            }, {
+                test: /\.jpg$/,
+                loader: "file-loader"
+            }, {
                 test: /\.css$/,
                 loader: 'style!css',
                 exclude: /node_modules/
@@ -51,9 +58,22 @@ module.exports = {
         ]
     },
     plugins: [
+        /*
         new webpack.ResolverPlugin(
             new webpack.ResolverPlugin.DirectoryDescriptionFilePlugin("bower.json", ["dependencies"])
         )
+        ,new webpack.optimize.UglifyJsPlugin({
+            minimize: true
+        }),
+        new webpack.optimize.DedupePlugin(),
+        new ngAnnotatePlugin({
+            add: true,
+            single_quotes:true
+            // other ng-annotate options here
+        }),
+        new webpack.optimize.OccurenceOrderPlugin()
+        
+        */
     ]
 
 };

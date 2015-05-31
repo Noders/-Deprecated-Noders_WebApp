@@ -1,6 +1,6 @@
 export default (ngModule) => {
     ngModule
-        .controller('CoreCtrl', function($scope, LoopBackAuth, $location, Noder) {
+        .controller('CoreCtrl', ['$scope', 'LoopBackAuth', '$location', 'Noder', function($scope, LoopBackAuth, $location, Noder) {
             /* Re-generar la informacion del usuario cuando reinicio el server */
             $scope.checkUserState = function() {
                 if (LoopBackAuth.currentUserId) {
@@ -23,6 +23,6 @@ export default (ngModule) => {
                     //$location.path('/')
                 }
             }
-        });
+        }]);
 
 }

@@ -1,6 +1,6 @@
 export default (ngModule) => {
-    ngModule.config(($stateProvider, $urlRouterProvider) => {
-         $urlRouterProvider.otherwise("/");
+    ngModule.config(['$stateProvider', '$urlRouterProvider', ($stateProvider, $urlRouterProvider) => {
+        $urlRouterProvider.otherwise("/");
 
-    })
+    }])
 }

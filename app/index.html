@@ -6,34 +6,15 @@
     <meta charset="utf-8">
 </head>
 
-<body ng-app="app">
-    <script type="text/javascript" src="noders.js"></script>
+<body ng-app="app" ng-strict-di ng-controller="CoreCtrl">
+    <script type="text/javascript" src="dist/noders.js"></script>
     <div ng-controller="AuthCtrl">
-        <div class="container-fluid main-page">
-            <div ui-view></div>
-            <div class="message-wrapper">
-                <div class="box">
-                    <p class="lead">Press the button, to see if Bowerk Webpack Plugin works...</p>
-                    <button type="button" class="btn btn-default btn-lg btn-center" data-toggle="modal" data-target="#myModal">
-                        <span class="glyphicon glyphicon-hand-right"></span> Try me
-                    </button>
-                </div>
-            </div>
-            <!-- Modal -->
-            <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-                <div class="modal-dialog">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h4 class="modal-title" id="myModalLabel">Bower Component Test</h4>
-                        </div>
-                        <div class="modal-body">
-                            If you see this dialog, it means that everything works <span class="glyphicon glyphicon-ok"></span> OK
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                        </div>
-                    </div>
-                </div>
+        <div id="wrapper">
+            <navigation-bar></navigation-bar>
+            <div id="page-wrapper" class="gray-bg">
+                <header-bar></header-bar>
+                <div ui-view></div>
+                <footer-bar></footer-bar>
             </div>
         </div>
     </div>

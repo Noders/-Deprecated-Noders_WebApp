@@ -1,6 +1,6 @@
 export default (ngModule) => {
     ngModule
-        .controller('AuthCtrl', function($scope, $location, Noder, LoopBackAuth) {
+        .controller('AuthCtrl', ['$scope', '$location', 'Noder', 'LoopBackAuth', function($scope, $location, Noder, LoopBackAuth) {
             $scope.auth = LoopBackAuth;
             //* auth.currentUserId **/
             $scope.error = {}
@@ -21,6 +21,6 @@ export default (ngModule) => {
                     }
                 })
             }
-        });
+        }]);
 
 }
