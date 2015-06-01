@@ -21,7 +21,6 @@
     "font-awesome": "^4.3.0",
     "font-awesome-webpack": "0.0.3",
     "imports-loader": "^0.6.4",
-    "jquery": "^2.1.4",
     "less": "^2.5.1",
     "less-loader": "^2.2.0",
     "metismenu": "^2.0.2",
@@ -37,8 +36,14 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "rm -rf dist/ && webpack -p",
     "dev": "webpack-dev-server --progress --colors --content-base app"
-
   },
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "angular": "^1.4.0",
+    "jquery": "^2.1.4",
+    "mdi": "^1.1.34",
+    "moment": "^2.10.3",
+    "velocity-animate": "^1.2.2"
+  }
 }

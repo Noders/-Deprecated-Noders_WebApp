@@ -1,6 +1,8 @@
 var webpack = require("webpack");
 var path = require("path");
 var ngAnnotatePlugin = require('ng-annotate-webpack-plugin');
+var BowerWebpackPlugin = require('bower-webpack-plugin');
+
 
 module.exports = {
     context: __dirname + '/app',
@@ -26,6 +28,7 @@ module.exports = {
 
             // Needed for the css-loader when [bootstrap-webpack](https://github.com/bline/bootstrap-webpack)
             // loads bootstrap's css.
+
             {
                 test: /\.woff(\?v=\d+\.\d+\.\d+)?$/,
                 loader: "url?limit=10000&minetype=application/font-woff"
@@ -62,9 +65,8 @@ module.exports = {
         ]
     },
     plugins: [
-        
         /*
-        new webpack.ResolverPlugin(
+        ,new webpack.ResolverPlugin(
             new webpack.ResolverPlugin.DirectoryDescriptionFilePlugin("bower.json", ["dependencies"])
         )
         ,new webpack.optimize.UglifyJsPlugin({
