@@ -10,14 +10,19 @@ module.exports = {
         filename: 'dist/noders.js'
     },
     module: {
+        noParse: [
+            /[\/\\]node_modules[\/\\]angular[\/\\]angular\.js$/
+        ],
         loaders: [
 
             // **IMPORTANT** This is needed so that each bootstrap js file required by
             // bootstrap-webpack has access to the jQuery object
+            /*
             {
                 test: /bootstrap\/js\//,
                 loader: 'imports?jQuery=jquery'
             },
+            */
 
             // Needed for the css-loader when [bootstrap-webpack](https://github.com/bline/bootstrap-webpack)
             // loads bootstrap's css.
@@ -44,8 +49,7 @@ module.exports = {
                 loader: "file-loader"
             }, {
                 test: /\.css$/,
-                loader: 'style!css',
-                exclude: /node_modules/
+                loader: 'style!css'
             }, {
                 test: /\.html$/,
                 loader: 'raw',
@@ -58,6 +62,7 @@ module.exports = {
         ]
     },
     plugins: [
+        
         /*
         new webpack.ResolverPlugin(
             new webpack.ResolverPlugin.DirectoryDescriptionFilePlugin("bower.json", ["dependencies"])

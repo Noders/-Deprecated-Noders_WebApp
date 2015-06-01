@@ -6,18 +6,14 @@
     <meta charset="utf-8">
 </head>
 
-<body ng-app="app" ng-strict-di ng-controller="CoreCtrl">
-    <script type="text/javascript" src="dist/noders.js"></script>
-    <div ng-controller="AuthCtrl">
-        <div id="wrapper">
-            <navigation-bar></navigation-bar>
-            <div id="page-wrapper" class="gray-bg">
-                <header-bar></header-bar>
-                <div ui-view></div>
-                <footer-bar></footer-bar>
-            </div>
-        </div>
+<body ng-app="app" ng-strict-di ng-controller="CoreCtrl" layout="row">
+    <navigation-bar layout='vertical' ng-controller='AuthCtrl'></navigation-bar>
+    <div flex layout="column" tabIndex="-1" role="main" class="md-whiteframe-z2">
+        <header-bar layout="row" ng-controller='AuthCtrl'></header-bar>
+        <md-content ui-view flex id="content"></md-content>
+        <footer-bar></footer-bar>
     </div>
 </body>
+<script type="text/javascript" src="dist/noders.js"></script>
 
 </html>

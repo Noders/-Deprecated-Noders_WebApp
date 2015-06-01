@@ -4,8 +4,4 @@ export default (ngModule) => {
 	require('./controllers/core.controller')(ngModule);
 	require('./controllers/header.controller')(ngModule);
 	require('./directives/core.directives')(ngModule);
-	require('./css/core.css');
-	require('./css/style.css');
-	require('font-awesome-webpack');
-    require('metismenu')
 }

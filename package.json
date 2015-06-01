@@ -5,6 +5,8 @@
   "main": "bundle.js",
   "devDependencies": {
     "angular": "^1.4.0",
+    "angular-animate": "^1.4.0",
+    "angular-material": "^0.9.6",
     "angular-resource": "^1.4.0",
     "angular-ui-router": "^0.2.15",
     "angular-webpack-plugin": "0.0.3",
@@ -33,7 +35,9 @@
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "webpack -p"
+    "build": "rm -rf dist/ && webpack -p",
+    "dev": "webpack-dev-server --progress --colors --content-base app"
+
   },
   "author": "",
   "license": "ISC"
