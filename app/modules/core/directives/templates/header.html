@@ -1,23 +1,33 @@
-<md-toolbar md-theme="default" class="md-whiteframe-z1">
-    <div class="md-toolbar-tools">
-        <md-button class="md-icon-button" aria-label="Settings"  ng-click="toggleSideBar()">
-            <md-icon md-svg-icon="img/icons/menu.svg"></md-icon>
-        </md-button>
-        <h2>
-          <span>Toolbar with Icon Buttons</span>
-        </h2>
-        <span flex></span>
-        <md-button class="md-icon-button" aria-label="Favorite">
-            <md-tooltip>
-                Favoritos
-            </md-tooltip>
-            <i class="fa fa-fw fa-heart"></i>
-        </md-button>
-        <md-button class="md-icon-button" aria-label="More">
-            <md-tooltip>
-                Configuracion
-            </md-tooltip>
-            <i class="fa fa-fw fa-cog"></i>
-        </md-button>
+<header class="header bgc-light-blue-600" ng-cloak>
+  <div class="menubar">
+        <button class="btn btn--m btn--icon btn--white" lx-ripple="white" ng-click="Sidebar.toggleSidebar()" style="position: relative; overflow: hidden;"><span class="ripple bgc-white" style="height: 36px; width: 36px; top: -1px; left: -5px;"></span>
+            <i class="mdi mdi-menu"></i>
+        </button>
     </div>
-</md-toolbar>
+
+  <nav class="main-nav main-nav--lap-and-up">
+    <ul>
+      <li ng-repeat="n in nav.app.links">
+        <a href="{{::n.link}}" class="main-nav__link" lx-ripple="white">
+          {{::n.text}}</a>
+      </li>
+    </ul>
+  </nav>
+  <nav class="main-nav main-nav--palm">
+    <lx-dropdown position="right" from-top="true" width="150px">
+      <button class="btn btn--l btn--white btn--icon" lx-ripple="white" lx-dropdown-toggle>
+        <i class="mdi mdi-dots-vertical"></i>
+      </button>
+
+      <lx-dropdown-menu>
+        <ul>
+          <li ng-repeat="n in nav.app.links">
+            <a ng-href="{{::n.link}}" class="main-nav__link" lx-ripple="white">
+              <span style="color: rgba(0, 0, 0, 0.541176)">{{::n.text}}</span>
+            </a>
+          </li>
+        </ul>
+      </lx-dropdown-menu>
+    </lx-dropdown>
+  </nav>
+</header>

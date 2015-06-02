@@ -4,7 +4,8 @@ const ngModule = angular.module('app', [
     require('angular-ui-router'),
     require('angular-resource'),
     require('angular-material'),
-    'lbServices'
+    'lbServices',
+    'lumx'
 ]);
 require('./config')(angular, ngModule)
 require('./modules')(ngModule)
