@@ -1,5 +1,7 @@
-const angular = require('angular');
 require('./vendor')();
+const angular = require('angular');
+require('./bower_components/lumx/dist/lumx.min.js');
+
 const ngModule = angular.module('app', [
     require('angular-ui-router'),
     require('angular-resource'),

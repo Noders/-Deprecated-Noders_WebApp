@@ -16,6 +16,7 @@
   ],
   "dependencies": {
     "bootstrap": "~3.3.4",
-    "lumx": "~0.3.32"
+    "lumx": "~0.3.35",
+    "bourbon": "*"
   }
 }

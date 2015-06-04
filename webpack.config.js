@@ -11,6 +11,10 @@ module.exports = {
         path: __dirname + '/app',
         filename: 'dist/noders.js'
     },
+    resolve: {
+        modulesDirectories: ['app/bower_components', 'node_modules']
+    },
+
     module: {
         noParse: [
             /[\/\\]node_modules[\/\\]angular[\/\\]angular\.js$/
@@ -54,6 +58,9 @@ module.exports = {
                 test: /\.css$/,
                 loader: 'style!css'
             }, {
+                test: /\.scss$/,
+                loader: "style!css!sass"
+            }, {
                 test: /\.html$/,
                 loader: 'raw',
                 exclude: /node_modules/
@@ -61,7 +68,11 @@ module.exports = {
                 test: /\.js$/,
                 loader: 'babel',
                 exclude: [/node_modules/, /bower_components/]
+            }, {
+                test: /[\/]angular\.js$/,
+                loader: "exports?angular"
             }
+
         ]
     },
     plugins: [
