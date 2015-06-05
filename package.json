@@ -37,8 +37,8 @@
     "scripts": {
         "test": "echo \"Error: no test specified\" && exit 1",
         "build": "rm -rf dist/ && webpack -p",
-        "dev": "webpack-dev-server --progress --colors --content-base app",
-        "start": "webpack-dev-server --progress --colors --content-base app"
+        "dev": "webpack-dev-server --hot --progress --colors --content-base app",
+        "start": "webpack-dev-server --hot --progress --colors --content-base app"
     },
     "author": "",
     "license": "ISC",

@@ -9,5 +9,5 @@ const ngModule = angular.module('app', [
     'lbServices',
     'lumx'
 ]);
-require('./config')(angular, ngModule)
-require('./modules')(ngModule)
+require('./config')(angular, ngModule);
+require('./modules')(angular, ngModule);

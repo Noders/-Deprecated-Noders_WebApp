@@ -1,7 +1,9 @@
 export default (ngModule) => {
     ngModule
-        .controller('HeaderController', ['$scope', 'Authentication', 'Menus',
-            function($scope, Authentication, Menus) {
+        .controller('HeaderController', ['$scope', 'Authentication', 'Menus', 'Sidebar',
+            function($scope, Authentication, Menus, Sidebar) {
+                $scope.Sidebar = Sidebar;
+                console.log($scope.Sidebar)
                 $scope.authentication = Authentication;
                 $scope.isCollapsed = false;
                 $scope.menu = Menus.getMenu('topbar');
@@ -23,5 +25,4 @@ export default (ngModule) => {
                 });
             }
         ]);
-
-}
+};

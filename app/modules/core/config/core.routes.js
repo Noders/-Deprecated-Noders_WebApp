@@ -7,7 +7,7 @@ export default (ngModule) => {
             })
             .state('login', {
                 url: '/login',
-                template: require('../views/login.html')
+                template: require('../views/users/login.html')
             });
     }])
 }

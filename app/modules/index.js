@@ -1,3 +1,3 @@
-export default (ngModule) => {
-	require('./core')(ngModule);
+export default (angular,ngModule) => {
+	require('./core')(angular,ngModule);
 }
