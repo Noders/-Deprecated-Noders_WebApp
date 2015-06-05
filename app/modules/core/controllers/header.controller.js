@@ -1,28 +1,46 @@
 export default (ngModule) => {
     ngModule
-        .controller('HeaderController', ['$scope', 'Authentication', 'Menus', 'Sidebar',
-            function($scope, Authentication, Menus, Sidebar) {
-                $scope.Sidebar = Sidebar;
-                console.log($scope.Sidebar)
-                $scope.authentication = Authentication;
-                $scope.isCollapsed = false;
-                $scope.menu = Menus.getMenu('topbar');
-                $scope.isNotAdmin = false;
+        .controller('HeaderCtrl', ['$scope', '$location', 'Noder', 'LoopBackAuth', '$timeout', '$mdSidenav', '$mdUtil', 'Sidebar',
+            function($scope, $location, Noder, LoopBackAuth, $timeout, $mdSidenav, $mdUtil, Sidebar) {
 
-                if (!_.intersection($scope.authentication.user.roles, ['admin']).length) {
-                    $scope.isNotAdmin = true;
-                } else {
-                    $scope.isNotAdmin = false;
-                }
-
-                $scope.toggleCollapsibleMenu = function() {
-                    $scope.isCollapsed = !$scope.isCollapsed;
+                $scope.isLoggedIn = function() {
+                    if (LoopBackAuth.currentUserId) {
+                        return true;
+                    } else {
+                        return false;
+                    }
                 };
-
-                // Collapsing the menu after navigation
-                $scope.$on('$stateChangeSuccess', function() {
-                    $scope.isCollapsed = false;
-                });
+                
+                $scope.Sidebar = Sidebar;
+                $scope.auth = LoopBackAuth;
+                //* auth.currentUserId **/
+                $scope.error = {};
+                $scope.logout = function() {
+                    Noder.logout().$promise.then(function(data) {
+                        $location.path('/');
+                    });
+                };
+                $scope.login = function() {
+                    Noder.login({
+                        username: $scope.username,
+                        password: $scope.password
+                    }, function(data) {
+                        $location.path('/');
+                    }, function(data) {
+                        if (data.data.error.code == "LOGIN_FAILED") {
+                            $scope.error.notfound = true;
+                        }
+                    });
+                };
+                var buildToggler = function(navId) {
+                    var debounceFn = $mdUtil.debounce(function() {
+                        $mdSidenav(navId)
+                            .toggle()
+                            .then(function() {});
+                    }, 300);
+                    return debounceFn;
+                };
+                $scope.toggleSideBar = buildToggler('left');
             }
         ]);
 };

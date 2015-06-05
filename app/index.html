@@ -9,10 +9,10 @@
 </head>
 
 <body ng-app="app" ng-strict-di ng-controller="CoreCtrl">
-    <header-bar ng-controller='AuthCtrl'></header-bar>
+    <header-bar ng-controller='HeaderCtrl'></header-bar>
     <div class="main">
-        <navigation-bar ng-controller='AuthCtrl'></navigation-bar>
-        <div ui-view></div>
+        <navigation-bar ng-controller='SidebarCtrl' ng-show="isLoggedIn()"></navigation-bar>
+        <div ui-view ng-class="{'main-section':isLoggedIn()}" ></div>
     </div>
     <!--div flex layout="column" tabIndex="-1" role="main" class="md-whiteframe-z2">
         <md-content ui-view flex id="content"></md-content>
