@@ -1,14 +1,27 @@
 export default (ngModule) => {
     ngModule
-        .controller('AuthCtrl', ['$scope', '$location', 'Noder', 'LoopBackAuth', '$timeout', '$mdSidenav', '$mdUtil', 'Sidebar',
+        .controller('UserCtrl', ['$scope', '$location', 'Noder', 'LoopBackAuth', '$timeout', '$mdSidenav', '$mdUtil', 'Sidebar',
             function($scope, $location, Noder, LoopBackAuth, $timeout, $mdSidenav, $mdUtil, Sidebar) {
                 $scope.Sidebar = Sidebar;
                 $scope.auth = LoopBackAuth;
+                console.log($scope.auth)
                 //* auth.currentUserId **/
                 $scope.error = {};
-                 $scope.logout = function() {
+                $scope.logout = function() {
                     Noder.logout().$promise.then(function(data) {
                         $location.path('/');
+                    });
+                };
+                $scope.login = function() {
+                    Noder.login({
+                        username: $scope.username,
+                        password: $scope.password
+                    }, function(data) {
+                        $location.path('/');
+                    }, function(data) {
+                        if (data.data.error.code == "LOGIN_FAILED") {
+                            $scope.error.notfound = true;
+                        }
                     });
                 };
                 var buildToggler = function(navId) {

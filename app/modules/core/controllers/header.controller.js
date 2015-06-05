@@ -10,28 +10,18 @@ export default (ngModule) => {
                         return false;
                     }
                 };
-                
-                $scope.Sidebar = Sidebar;
-                $scope.auth = LoopBackAuth;
-                //* auth.currentUserId **/
-                $scope.error = {};
+
                 $scope.logout = function() {
                     Noder.logout().$promise.then(function(data) {
                         $location.path('/');
                     });
                 };
-                $scope.login = function() {
-                    Noder.login({
-                        username: $scope.username,
-                        password: $scope.password
-                    }, function(data) {
-                        $location.path('/');
-                    }, function(data) {
-                        if (data.data.error.code == "LOGIN_FAILED") {
-                            $scope.error.notfound = true;
-                        }
-                    });
-                };
+
+                $scope.Sidebar = Sidebar;
+                $scope.auth = LoopBackAuth;
+                //* auth.currentUserId **/
+                $scope.error = {};
+
                 var buildToggler = function(navId) {
                     var debounceFn = $mdUtil.debounce(function() {
                         $mdSidenav(navId)

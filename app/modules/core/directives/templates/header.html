@@ -10,20 +10,18 @@
     </h1>
     <nav class="main-nav main-nav--lap-and-up" ng-hide="isLoggedIn()">
         <ul>
-            <li><a ui-sref="auth.register" class="main-nav__link" lx-ripple="white">Registrate</a></li>
-            <li><a ui-sref="auth.login" class="main-nav__link" lx-ripple="white">Ingresa</a></li>
+            <li><a ui-sref="register" class="main-nav__link" lx-ripple="white">Registrate</a></li>
+            <li><a ui-sref="login" class="main-nav__link" lx-ripple="white">Ingresa</a></li>
         </ul>
     </nav>
     <nav class="main-nav " ng-show="isLoggedIn()">
         <lx-dropdown position="right" from-top>
             <button class="btn btn--m btn--white btn--icon" lx-ripple="white" lx-dropdown-toggle>
-                <i class="mdi mdi-dots-vertical"></i>
+                <i class="mdi mdi-account"></i>
             </button>
             <lx-dropdown-menu>
                 <ul>
-                    <li><a ui-sref="/getting-started/installation" class="dropdown-link">Getting started</a></li>
-                    <li><a href="/css/mixins" class="dropdown-link">CSS</a></li>
-                    <li><a href="/directives/dropdowns" class="dropdown-link">Directives</a></li>
+                    <li><a ui-sref="profile" class="dropdown-link">Perfil</a></li>
                     <li class="dropdown-divider"></li>
                     <li><a ng-click="logout()" class="dropdown-link">Salir</a></li>
                 </ul>

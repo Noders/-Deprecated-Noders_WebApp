@@ -1,0 +1,30 @@
+<div class="main-section__content" ng-controller="EventsCtrl">
+    <h3 class="main-section__title">Próximos eventos :o!</h3>
+    <div class="example centerme">
+        <div class="example__content pt0">
+            <div class="mt+++ " flex-container="row" flex-wrap>
+                <div flex-item class="m++" ng-repeat="evento in eventos">
+                    <div  class="card">
+                        <div class="card__img card__img--top">
+                            <img ng src="http://ui.lumapps.com/images/placeholder/2-horizontal.jpg">
+                            <span class="fs-headline tc-white-1 display-block">{{evento.fechainicio | date}}</span>
+                        </div>
+                        <div class="p+">
+                            <span class="fs-subhead tc-black-2 display-block">{{evento.comunidad.name}}</span>
+                            <div class="paragraph fs-body-1">
+                                <p>
+                                    {{evento.name}}
+                                </p>
+                            </div>
+                        </div>
+                        <div class="card__actions">
+                            <button class="btn btn--m btn--black btn--flat" lx-ripple>Compartir</button>
+                            <button class="btn btn--m btn--orange btn--flat" lx-ripple>Más Información</button>
+                        </div>
+                    </div>
+                </div>
+                <div id="progress" ng-hide="$scope.eventos.$resolved"></div>
+            </div>
+        </div>
+    </div>
+</div>
