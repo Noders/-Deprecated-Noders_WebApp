@@ -197,6 +197,10 @@ export default (angular) => {
                 url: urlBase + "/Noders/:id/volverAdmin",
                 method: "POST"
             },
+            prototype$roles: {
+                url: urlBase + "/Noders/:id/roles",
+                method: "GET"
+            },
             "::findById::Comunidad::noders": {
                 url: urlBase + "/Comunidades/:id/noders/:fk",
                 method: "GET"

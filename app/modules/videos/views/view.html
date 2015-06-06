@@ -1,0 +1,15 @@
+<div class="main-section__content" ng-controller="VideosCtrl" ng-init="getOne()">
+    <div class="example">
+        <h3 class="main-section__title">{{video.videoName}}</h3>
+        <div class="example__content ">
+            <div class="" flex-container="row" flex-wrap>
+                <div flex-item="12" class="p">
+                    <div class="embed-responsive embed-responsive-16by9">
+                        <youtube-video video-id="theBestVideo" class="embed-responsive-item"></youtube-video>
+                    </div>
+                </div>
+                <div id="progress" ng-hide="$scope.eventos.$resolved"></div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -7,7 +7,8 @@ const ngModule = angular.module('app', [
     require('angular-resource'),
     require('angular-material'),
     'lbServices',
-    'lumx'
+    'lumx',
+    'youtube-embed'
 ]);
 require('./config')(angular, ngModule);
 require('./modules')(angular, ngModule);

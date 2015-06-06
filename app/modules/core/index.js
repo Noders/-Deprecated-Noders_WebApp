@@ -7,4 +7,5 @@ export default (angular, ngModule) => {
     require('./directives/core.directives')(ngModule);
     require('./services/core.header.services')(ngModule);
     require('./services/NodersAPI.services')(angular, ngModule);
+    require('./css')(angular, ngModule);
 }

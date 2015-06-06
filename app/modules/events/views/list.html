@@ -1,10 +1,18 @@
 <div class="main-section__content" ng-controller="EventsCtrl">
-    <h3 class="main-section__title">Próximos eventos :o!</h3>
-    <div class="example centerme">
-        <div class="example__content pt0">
-            <div class="mt+++ " flex-container="row" flex-wrap>
-                <div flex-item class="m++" ng-repeat="evento in eventos">
-                    <div  class="card">
+    <h3 class="main-section__title">Próximos eventos :o! </h3>
+    <div class="example centerme pt+++ ">
+        <div class="example__content ">
+            <div class="text-right" flex-container="row" flex-wrap >
+                <div flex-item="12" class="p++ pt0 text-right">
+                    <button class="btn btn--m btn--blue btn--raised pull-right" lx-ripple>
+                        <i class="mdi mdi-plus"></i>
+                        <span> Crear evento</span>
+                    </button>
+                </div>
+            </div>
+            <div class="" flex-container="row" flex-wrap>
+                <div flex-item="4" class="p++" ng-repeat="evento in eventos">
+                    <div class="card">
                         <div class="card__img card__img--top">
                             <img ng src="http://ui.lumapps.com/images/placeholder/2-horizontal.jpg">
                             <span class="fs-headline tc-white-1 display-block">{{evento.fechainicio | date}}</span>
@@ -19,7 +27,7 @@
                         </div>
                         <div class="card__actions">
                             <button class="btn btn--m btn--black btn--flat" lx-ripple>Compartir</button>
-                            <button class="btn btn--m btn--orange btn--flat" lx-ripple>Más Información</button>
+                            <a class="btn btn--m btn--orange btn--flat" lx-ripple>Más Información</a>
                         </div>
                     </div>
                 </div>

@@ -5,7 +5,7 @@ export default (ngModule) => {
                 $scope.Sidebar = Sidebar;
                 $scope.auth = LoopBackAuth;
                 console.log($scope.auth)
-                //* auth.currentUserId **/
+                    //* auth.currentUserId **/
                 $scope.error = {};
                 $scope.logout = function() {
                     Noder.logout().$promise.then(function(data) {
@@ -17,7 +17,12 @@ export default (ngModule) => {
                         username: $scope.username,
                         password: $scope.password
                     }, function(data) {
-                        $location.path('/');
+                        Noder.prototype$roles({
+                            id: data.userId
+                        }, function(data) {
+                            $scope.auth.roles = data.roles
+                            $location.path('/');
+                        })
                     }, function(data) {
                         if (data.data.error.code == "LOGIN_FAILED") {
                             $scope.error.notfound = true;

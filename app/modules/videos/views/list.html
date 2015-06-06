@@ -1,4 +1,32 @@
-<div class="main-section__content" ng-controller="HeaderCtrl">
+<div class="main-section__content" ng-controller="VideosCtrl" ng-init="getLatestVideos()">
     <h3 class="main-section__title">Nuestros videos!</h3>
-  
+    <div class="example centerme pt+++ ">
+        <div class="example__content ">
+            <div class="" flex-container="row" flex-wrap>
+                <div flex-item="4" class="p++" ng-repeat="video in videos">
+                    <div class="card video">
+                        <div class="card__img card__img--top">
+                            <img ng-src="{{video.snippet.thumbnails.maxres.url || 'https://cloud.githubusercontent.com/assets/952992/8020888/424b199c-0c60-11e5-927b-21782f178834.png'}}">
+                            <a ng-href="#/videos/{{video.snippet.resourceId.videoId}}/{{video.snippet.title}}"class="fs-subhead tc-white-1 p display-block text">{{video.snippet.title}}</a>
+                        </div>
+                        <div class="card__actions">
+                            <div class="fab">
+                                <button class="fab__primary btn btn--m btn--grey btn--fab" lx-ripple lx-tooltip="Compartir" tooltip-position="right">
+                                    <i class="mdi mdi-share"></i>
+                                    <i class="mdi mdi-network"></i>
+                                </button>
+                                <div class="fab__actions fab__actions--down">
+                                    <button class="btn btn--l btn--black btn--fab" lx-ripple lx-tooltip="Lorem Ipsum" tooltip-position="right"><i class="mdi mdi-pencil"></i></button>
+                                    <button class="btn btn--l btn--black btn--fab" lx-ripple lx-tooltip="Lorem Ipsum" tooltip-position="right"><i class="mdi mdi-package"></i></button>
+                                    <button class="btn btn--l btn--black btn--fab" lx-ripple lx-tooltip="Lorem Ipsum" tooltip-position="right"><i class="mdi mdi-delete"></i></button>
+                                </div>
+                            </div>
+                            <a ng-href="#/videos/{{video.snippet.resourceId.videoId}}/{{video.snippet.title}}" class="btn btn--m btn--green btn--raised pull-right" lx-ripple>Ver video</a>
+                        </div>
+                    </div>
+                </div>
+                <div id="progress" ng-hide="$scope.eventos.$resolved"></div>
+            </div>
+        </div>
+    </div>
 </div>

@@ -17,6 +17,7 @@
   "dependencies": {
     "bootstrap": "~3.3.4",
     "lumx": "~0.3.35",
-    "bourbon": "*"
+    "bourbon": "*",
+    "angular-youtube-mb": "~1.0.2"
   }
 }
