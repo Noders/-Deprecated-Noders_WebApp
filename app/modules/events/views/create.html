@@ -3,9 +3,19 @@
     <div class="example centerme pt+++ ">
         <div class="example__content ">
             <div class="mt+++ " flex-container="column">
-                <div flex-item="6">
-                    <span class="fs-display-3 display-block text-center">Nuevo Evento!</span>
-                </div>
+                <form>
+                    <div flex-item="6">
+                        <span class="fs-display-3 display-block text-center">Nuevo Evento!</span>
+                    </div>
+                    <formly-form model="formData" fields="formFields" options="formOptions">
+                        <br>
+                        <div class="mt+++ " flex-container="column">
+                            <div flex-item="6" class="text-center">
+                                <button ng-disabled="formData.$invalid"  class="btn btn--l btn--green btn--raised" lx-ripple ng-click="create()">Ingresar</button>
+                            </div>
+                        </div>
+                    </formly-form>
+                </form>
                 <div flex-item="6">
                     <lx-text-field label="Nombre del evento">
                         <input type="text" ng-model="name">
@@ -36,7 +46,7 @@
                         </lx-text-field>
                     </div>
                     <div flex-item="1" class="pr+ pt+++">
-                        <a href="" class="picker pl"> 
+                        <a href="" class="picker pl">
                             <i class="fa fa-fw fa-calendar"></i>
                         </a>
                     </div>
@@ -46,15 +56,10 @@
                         </lx-text-field>
                     </div>
                     <div flex-item="1" class="pt+++">
-                        <a href="" class="picker pl"> 
+                        <a href="" class="picker pl">
                             <i class="fa fa-fw fa-calendar"></i>
                         </a>
                     </div>
-                </div>
-            </div>
-            <div class="mt+++ " flex-container="column">
-                <div flex-item="6" class="text-center">
-                    <button class=" btn btn--l btn--green btn--raised" lx-ripple ng-click="create()">Ingresar</button>
                 </div>
             </div>
         </div>

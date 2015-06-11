@@ -18,6 +18,7 @@
     "bootstrap": "~3.3.4",
     "lumx": "~0.3.35",
     "bourbon": "*",
-    "angular-youtube-mb": "~1.0.2"
+    "angular-youtube-mb": "~1.0.2",
+    "angular-formly-templates-lumx": "~1.5.2"
   }
 }
