@@ -2,15 +2,24 @@
 
 ##Instalación
 
-1. Clonar el repo
-2. Instalar webpack globalmente
-  * npm install webpack -g
-3. Instalar dependencias
-  * npm install && bower install
-4. Descargar e instalar la API
+* Clonar el repo
+```bash
+ git clone git@github.com:forres/webpack.git && cd webpack/
+```
+* Instalar webpack globalmente
+```bash
+ npm install webpack -g
+```
+* Instalar dependencias
+```bash
+ npm install && bower install
+```
+* Descargar e instalar la API
   * https://github.com/Noders/Noders-API
-5. Correr la app! 
-  * npm run-script dev
+* Correr la app! 
+```bash
+ npm run-script dev
+```
   
 
 ## TODO / Roadmap
