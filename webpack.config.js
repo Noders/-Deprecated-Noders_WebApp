@@ -9,12 +9,13 @@ module.exports = {
     entry: './index.js',
     output: {
         path: __dirname + '/app',
-        filename: 'dist/noders.js'
+        filename: 'dist/noders.js',
+        pathinfo:true
     },
     resolve: {
         modulesDirectories: ['app/bower_components', 'node_modules']
     },
-
+    devtool: 'eval' ,
     module: {
         noParse: [
             /[\/\\]node_modules[\/\\]angular[\/\\]angular\.js$/

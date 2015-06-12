@@ -1,66 +1,30 @@
 <div class="main-section__content" ng-controller="EventsCtrl">
-    <h3 class="main-section__title">Creando un evento</h3>
-    <div class="example centerme pt+++ ">
+    <div class="example centerme ">
         <div class="example__content ">
-            <div class="mt+++ " flex-container="column">
-                <form>
-                    <div flex-item="6">
-                        <span class="fs-display-3 display-block text-center">Nuevo Evento!</span>
+            <div class="" flex-container="column">
+                <form ng-submit="create()" name="createevent">
+                    <div flex-item class="mb+++">
+                        <div class="card">
+                            <div class="p++">
+                                <strong class="fs-headline display-block">Unas pequeñas aclaraciones</strong>
+                                <span class="fs-subhead tc-black-2 display-block">(Antes de crear el evento)</span>
+                                <div class="paragraph fs-body-1 m++">
+                                    <span class="mt fs-subhead display-block text-left">Para obtener la latitud y longitud del evento, usar <a target="_blank" href="http://www.latlong.net/">http://www.latlong.net</a> </span>
+                                    <span class="mt fs-subhead display-block text-left pt"> Para obtener la url de la foto del evento, <b>agregarla como un comentario</b> al siguiente <a target="_blank" href="https://github.com/Noders/Noders-Web/issues/20">issue de github</a> y recuperar esa URL</a> </span>
+                                </div>
+                            </div>
+                        </div>
                     </div>
+                    <span class="pt+++ fs-display-3 display-block text-center">Nuevo Evento!</span>
                     <formly-form model="formData" fields="formFields" options="formOptions">
                         <br>
                         <div class="mt+++ " flex-container="column">
                             <div flex-item="6" class="text-center">
-                                <button ng-disabled="formData.$invalid"  class="btn btn--l btn--green btn--raised" lx-ripple ng-click="create()">Ingresar</button>
+                                <button ng-disabled="createevent.$invalid" class="btn btn--l btn--green btn--raised" lx-ripple>Ingresar</button>
                             </div>
                         </div>
                     </formly-form>
                 </form>
-                <div flex-item="6">
-                    <lx-text-field label="Nombre del evento">
-                        <input type="text" ng-model="name">
-                    </lx-text-field>
-                </div>
-                <div flex-item="6">
-                    <lx-text-field label="Pagina del evento (Para publicidad o suscripción)">
-                        <input type="url" ng-model="url">
-                    </lx-text-field>
-                </div>
-                <div flex-item="6" class="pt+++">
-                    <a href="http://www.latlong.net/" target="_blank" class="fs-display-5 display-block text-left">Obten la latitud y longitud en www.latlong.net</a>
-                </div>
-                <div flex-item="6">
-                    <lx-text-field label="Latitud">
-                        <input type="text" ng-model="latitude">
-                    </lx-text-field>
-                </div>
-                <div flex-item="6">
-                    <lx-text-field label="Longitud">
-                        <input type="text" ng-model="longitude">
-                    </lx-text-field>
-                </div>
-                <div class="mt+++ datepicker" flex-container="row" flex-wrap>
-                    <div flex-item="5">
-                        <lx-text-field label="Fecha de inicio">
-                            <input type="datepicker" ng-model="name">
-                        </lx-text-field>
-                    </div>
-                    <div flex-item="1" class="pr+ pt+++">
-                        <a href="" class="picker pl">
-                            <i class="fa fa-fw fa-calendar"></i>
-                        </a>
-                    </div>
-                    <div flex-item="5" class="pl+">
-                        <lx-text-field label="Fecha de término">
-                            <input type="datepicker" ng-model="name">
-                        </lx-text-field>
-                    </div>
-                    <div flex-item="1" class="pt+++">
-                        <a href="" class="picker pl">
-                            <i class="fa fa-fw fa-calendar"></i>
-                        </a>
-                    </div>
-                </div>
             </div>
         </div>
     </div>
