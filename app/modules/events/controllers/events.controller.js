@@ -1,8 +1,8 @@
 export default (ngModule) => {
     ngModule
-        .controller('EventsCtrl', ['$scope', 'LoopBackAuth', '$location', 'Noder', 'Evento', 'LxProgressService',
-            function($scope, LoopBackAuth, $location, Noder, Evento, LxProgressService) {
-
+        .controller('EventsCtrl', ['$scope', 'LoopBackAuth', '$location', '$stateParams', 'Noder', 'Evento', 'LxProgressService', 'Roles', 'LxNotificationService',
+            function($scope, LoopBackAuth, $location, $stateParams, Noder, Evento, LxProgressService, Roles, LxNotificationService) {
+                $scope.Roles = Roles;
                 $scope.isLoggedIn = function() {
                     if (LoopBackAuth.currentUserId) {
                         return true;
@@ -10,6 +10,7 @@ export default (ngModule) => {
                         return false;
                     }
                 };
+
                 if (LoopBackAuth.currentUserId) {
                     Noder.findById({
                         'id': LoopBackAuth.currentUserId
@@ -18,11 +19,81 @@ export default (ngModule) => {
                     });
                 }
 
+                $scope.getOne = function(edit) {
+                    LxProgressService.circular.show('#5fa2db', '#progress');
+                    $scope.evento = {};
+                    Evento.findById({
+                        id: $stateParams.id,
+                        filter: {
+                            'include': 'comunidad',
+                            'order': 'fechainicio DESC'
+                        }
+                    }).$promise.then(function(evento) {
+                        if (!evento.urlimagen) {
+                            evento.urlimagen = 'http://ui.lumapps.com/images/placeholder/2-horizontal.jpg';
+                        }
+                        $scope.evento = evento;
+                        if (edit) {
+                            $scope.formData = $scope.evento;
+                            $scope.formData.latitud = $scope.evento.geo.lat;
+                            $scope.formData.longitud = $scope.evento.geo.lng;
+                        }
+                        LxProgressService.circular.hide();
+                    });
+                };
+                $scope.delete = function() {
+
+                    LxNotificationService.confirm('Seguro?!', 'Decididiste borrar este evento. Realmente seguro que quieres borrarlo?', {
+                        cancel: 'No borrar',
+                        ok: 'Si, Borralo de la existencia!'
+                    }, function(answer) {
+                        console.log(answer);
+                        if (answer) {
+                            $scope.evento.activo = false;
+                            Evento.prototype$updateAttributes({
+                                    id: $scope.evento.id
+                                }, $scope.evento)
+                                .$promise
+                                .then(function(data) {
+                                    console.log(data);
+                                });
+                        };
+
+                    });
+
+                };
+
+
+                $scope.edit = function() {
+                    $scope.evento.geo = null;
+                    if ($scope.formData.latitud && $scope.formData.longitud) {
+                        $scope.evento.geo = {
+                            lat: $scope.formData.latitud,
+                            lng: $scope.formData.longitud
+                        };
+                    }
+                    Evento.prototype$updateAttributes({
+                            id: $scope.evento.id
+                        }, $scope.evento)
+                        .$promise
+                        .then(function(data) {
+                            console.log(data);
+                            LxNotificationService.success('Evento actualizado');
+                        });
+
+                };
+
                 $scope.ShowEvents = function() {
                     LxProgressService.circular.show('#5fa2db', '#progress');
                     Evento.find({
                             filter: {
-                                'include': 'comunidad'
+                                'include': 'comunidad',
+                                'order': 'fechainicio DESC'
+                            },
+                            where: {
+                                activo: {
+                                    neq: false
+                                }
                             }
                         })
                         .$promise
@@ -44,7 +115,7 @@ export default (ngModule) => {
                     var nuevoEvento = {
                         name: $scope.formData.name,
                         url: $scope.formData.url,
-                        urlimagen:$scope.formData.urlimagen,
+                        urlimagen: $scope.formData.urlimagen,
                         geo: geo,
                         fechainicio: $scope.formData.fechainicio,
                         fechatermino: $scope.formData.fechatermino,
@@ -53,8 +124,7 @@ export default (ngModule) => {
                     Evento.create(nuevoEvento).$promise.then(
                         function(evento) {
                             $scope.creado = true;
-                            console.log(evento);
-                            alert("creado!");
+                            LxNotificationService.success('Evento creado correctamente');
                         });
                 };
 

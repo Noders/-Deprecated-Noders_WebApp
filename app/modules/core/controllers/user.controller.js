@@ -1,10 +1,10 @@
 export default (ngModule) => {
     ngModule
-        .controller('UserCtrl', ['$scope', '$location', 'Noder', 'LoopBackAuth', '$timeout', '$mdSidenav', '$mdUtil', 'Sidebar',
-            function($scope, $location, Noder, LoopBackAuth, $timeout, $mdSidenav, $mdUtil, Sidebar) {
+        .controller('UserCtrl', ['$scope', '$location', 'Noder', 'LoopBackAuth', '$timeout', '$mdSidenav', '$mdUtil', 'Sidebar', 'localStorageService',
+            function($scope, $location, Noder, LoopBackAuth, $timeout, $mdSidenav, $mdUtil, Sidebar,localStorageService) {
                 $scope.Sidebar = Sidebar;
                 $scope.auth = LoopBackAuth;
-                console.log($scope.auth)
+                console.log($scope.auth);
                     //* auth.currentUserId **/
                 $scope.error = {};
                 $scope.logout = function() {
@@ -20,9 +20,9 @@ export default (ngModule) => {
                         Noder.prototype$roles({
                             id: data.userId
                         }, function(data) {
-                            $scope.auth.roles = data.roles
+                            localStorageService.set('roles',data.roles);
                             $location.path('/');
-                        })
+                        });
                     }, function(data) {
                         if (data.data.error.code == "LOGIN_FAILED") {
                             $scope.error.notfound = true;

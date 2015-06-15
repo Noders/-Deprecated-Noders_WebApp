@@ -1,0 +1,58 @@
+<div class="main-section__content" ng-controller="EventsCtrl" ng-init="getOne()">
+    <div class="example">
+        <h3 class="main-section__title">{{evento.name}}</h3>
+        <div class="example__content ">
+            <div class="text-right" flex-container="row" flex-wrap ng-show="Roles.isAdmin() || Roles.isFounder() ">
+                <div flex-item="12" class="p+ pt0 text-right">
+                    <a ng-click="delete(evento.id)" class="btn btn--m btn--red btn--raised pull-right ml+" lx-ripple>
+                        <i class="mdi mdi-delete"></i>
+                        <span> Eliminar </span>
+                    </a>
+                    <a ng-href="#/events/{{evento.id}}/edit" class="btn btn--m btn--blue btn--raised pull-right ml+" lx-ripple>
+                        <i class="mdi mdi-pencil-box"></i>
+                        <span> Editar </span>
+                    </a>
+                </div>
+            </div>
+
+            <div class="" flex-container="row" flex-wrap>
+                <div flex-item="6" class="p">
+                    <img ng-src="{{evento.urlimagen}}">
+                </div>
+                <div flex-item="6" class="p+">
+                    <div class="display-block">
+                        <span class="fs-title tc-black-2">    
+                            <a href="{{evento.comunidad.url}}">
+                                {{evento.comunidad.name}}
+                            </a>
+                        </span>
+                        <span class="fs-subhead pl++">    
+                            <a href="http://www.facebook.com/{{evento.comunidad.facebook}}" target="_blank"><i class="mdi mdi-facebook"></i></a>
+                            <a href="http://www.twitter.com/{{evento.comunidad.twitter}}" target="_blank"><i class="mdi mdi-twitter"></i></a>
+                            <a href="{{evento.comunidad.url}}" target="_blank"><i class="mdi mdi-web"></i></a>
+                        </span>
+                    </div>
+                    <div class="fs-subhead display-block pt+">
+                        <p>
+                            {{evento.name}}
+                        </p>
+                    </div>
+                    <div class="fs-body-1 display-block pt++">
+                        <p>
+                            {{evento.descripcion}}
+                        </p>
+                    </div>
+                    <div class="fs-body-1 display-block pt++">
+                        <p>
+                            <a href="{{evento.url}}" target="_blank">
+                                <i class="mdi mdi-web"></i>
+                                <span> Ir al link evento </span>
+                            </a>
+                        </p>
+                    </div>
+                </div>
+                <div id="progress" ng-hide="$scope.evento.$resolved"></div>
+            </div>
+        </div>
+    </div>
+</div>

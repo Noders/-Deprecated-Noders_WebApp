@@ -2,7 +2,7 @@
     <h3 class="main-section__title">Próximos eventos :o! </h3>
     <div class="example centerme pt+++ ">
         <div class="example__content ">
-            <div class="text-right" flex-container="row" flex-wrap >
+            <div class="text-right" flex-container="row" flex-wrap ng-show="Roles.isAdmin() || Roles.isFounder() ">
                 <div flex-item="12" class="p++ pt0 text-right">
                     <a ui-sref="events_create" class="btn btn--m btn--blue btn--raised pull-right" lx-ripple>
                         <i class="mdi mdi-plus"></i>
@@ -11,12 +11,12 @@
                 </div>
             </div>
             <div class="" flex-container="row" flex-wrap>
-                <div flex-item="4" class="p++" ng-repeat="evento in eventos">
+                <div flex-item="4" class="p++ evento" ng-repeat="evento in eventos">
                     <div class="card">
-                        <div class="card__img card__img--top">
-                            <img ng src="http://ui.lumapps.com/images/placeholder/2-horizontal.jpg">
-                            <span class="fs-headline tc-white-1 display-block">{{evento.fechainicio | date}}</span>
-                        </div>
+                        <a ng-href="#/events/{{evento.id}}" class="card-link card__img card__img--top">
+                            <img class="image" ng-src="{{evento.urlimagen || 'http://ui.lumapps.com/images/placeholder/2-horizontal.jpg'}}">
+                            <span class="date fs-headline tc-white-1 display-block">{{evento.fechainicio | date}}</span>
+                        </a>
                         <div class="p+">
                             <span class="fs-subhead tc-black-2 display-block">{{evento.comunidad.name}}</span>
                             <div class="paragraph fs-body-1">

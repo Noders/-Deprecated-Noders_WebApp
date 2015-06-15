@@ -3,7 +3,7 @@ const angular = require('angular');
 require('./bower_components/lumx/dist/lumx.min.js');
 require('./bower_components/angular-formly-templates-lumx/dist/formlyLumx.js');
 require('./bower_components/angular-formly-templates-lumx/dist/formlyLumx.css');
-
+require('angular-local-storage'); //(|)angular-local-storage.js
 const ngModule = angular.module('app', [
     require('angular-ui-router'),
     require('angular-resource'),
@@ -14,7 +14,8 @@ const ngModule = angular.module('app', [
     'lbServices',
     'lumx',
 	'formlyLumx',
-    'youtube-embed'
+    'youtube-embed',
+    'LocalStorageModule'
 ]);
 
 

@@ -6,6 +6,7 @@ export default (angular, ngModule) => {
     require('./controllers/sidebar.controller')(ngModule);
     require('./directives/core.directives')(ngModule);
     require('./services/core.header.services')(ngModule);
+    require('./services/core.roles.services')(ngModule);
     require('./services/NodersAPI.services')(angular, ngModule);
     require('./css')(angular, ngModule);
 }

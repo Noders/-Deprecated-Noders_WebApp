@@ -1,4 +1,3 @@
 export default (ngModule) => {
-    ngModule.config(['$mdThemingProvider', ($mdThemingProvider) => {
-    }])
+    ngModule.config(['$mdThemingProvider', ($mdThemingProvider) => {}]);
 }

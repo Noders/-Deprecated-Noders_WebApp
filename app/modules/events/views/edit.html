@@ -1,0 +1,34 @@
+<div class="main-section__content" ng-controller="EventsCtrl" ng-init="getOne(true)">
+    <div class="example centerme ">
+        <div class="example__content ">
+            <div class="" flex-container="column">
+                <form ng-submit="edit()" name="createevent">
+                    <div flex-item class="mb+++">
+                        <div class="card">
+                            <div class="p++">
+                                <strong class="fs-headline display-block">Editar documento</strong>
+                                <strong class="fs-headline display-block">Unas pequeñas aclaraciones</strong>
+                                <span class="fs-subhead tc-black-2 display-block">(Antes de crear el evento)</span>
+                                <div class="paragraph fs-body-1 m++">
+                                    <span class="mt fs-subhead display-block text-left">Para obtener la latitud y longitud del evento, usar <a target="_blank" href="http://www.latlong.net/">http://www.latlong.net</a> </span>
+                                    <span class="mt fs-subhead display-block text-left pt"> Para obtener la url de la foto del evento, <b>agregarla como un comentario</b> al siguiente <a target="_blank" href="https://github.com/Noders/Noders-Web/issues/20">issue de github</a> y recuperar esa URL</a> </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <span class="pt+++ fs-display-3 display-block text-center">Nuevo Evento!</span>
+                    <formly-form model="formData" fields="formFields" options="formOptions">
+                        <br>
+                        <div class="mt+++ " flex-container="column">
+                            <div flex-item="6" class="text-center">
+                                <button ng-disabled="createevent.$invalid" class="btn btn--l btn--green btn--raised" lx-ripple>Ingresar</button>
+                            </div>
+                        </div>
+                    </formly-form>
+                </form>
+                <div id="progress" ng-hide="$scope.evento.$resolved"></div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
