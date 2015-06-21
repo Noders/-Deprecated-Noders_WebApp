@@ -1,11 +1,10 @@
 export default (ngModule) => {
     ngModule
         .controller('UserCtrl', ['$scope', '$location', 'Noder', 'LoopBackAuth', '$timeout', '$mdSidenav', '$mdUtil', 'Sidebar', 'localStorageService',
-            function($scope, $location, Noder, LoopBackAuth, $timeout, $mdSidenav, $mdUtil, Sidebar,localStorageService) {
+            function($scope, $location, Noder, LoopBackAuth, $timeout, $mdSidenav, $mdUtil, Sidebar, localStorageService) {
                 $scope.Sidebar = Sidebar;
                 $scope.auth = LoopBackAuth;
-                console.log($scope.auth);
-                    //* auth.currentUserId **/
+                //* auth.currentUserId **/
                 $scope.error = {};
                 $scope.logout = function() {
                     Noder.logout().$promise.then(function(data) {
@@ -13,6 +12,7 @@ export default (ngModule) => {
                     });
                 };
                 $scope.login = function() {
+                    $scope.processingLoading = true;
                     Noder.login({
                         username: $scope.username,
                         password: $scope.password
@@ -20,24 +20,18 @@ export default (ngModule) => {
                         Noder.prototype$roles({
                             id: data.userId
                         }, function(data) {
-                            localStorageService.set('roles',data.roles);
+                            $scope.processingLoading = false;
+
+                            localStorageService.set('roles', data.roles);
                             $location.path('/');
                         });
                     }, function(data) {
+                        $scope.processingLoading = false;
                         if (data.data.error.code == "LOGIN_FAILED") {
                             $scope.error.notfound = true;
                         }
                     });
                 };
-                var buildToggler = function(navId) {
-                    var debounceFn = $mdUtil.debounce(function() {
-                        $mdSidenav(navId)
-                            .toggle()
-                            .then(function() {});
-                    }, 300);
-                    return debounceFn;
-                };
-                $scope.toggleSideBar = buildToggler('left');
             }
         ]);
 };

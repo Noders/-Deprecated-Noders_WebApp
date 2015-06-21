@@ -1,20 +1,40 @@
-<div class="sidebar" ng-class="{ 'sidebar--is-shown': Sidebar.isSidebarShown() }">
-    <div class="sidebar-menu">
-        <ul>
+<div class="sidebar " ng-class="{ 'sidebar--is-shown': Sidebar.isSidebarShown() }">
+    <div class="sidebar-menu ">
+        <ul class="has-divider has-divider--dark pb mb">
             <li>
-                <a class="sidebar-menu__link" ui-sref="events" >
+                <a class="sidebar-menu__link" ui-sref="events">
                     <i class="fa fa-fw fa-calendar"></i>
                     <span> Eventos</span>
                 </a>
             </li>
-
             <li>
                 <a class="sidebar-menu__link" ui-sref="videos">
                     <i class="fa fa-fw fa-youtube"></i>
                     <span> Youtube </span>
                 </a>
             </li>
-
+        </ul>
+        <ul class="has-divider has-divider--dark pb mb">
+            <li>
+                <a class="sidebar-menu__link" ui-sref="slack">
+                    <i class="fa fa-fw fa-slack"></i>
+                    <span> Slack</span>
+                </a>
+            </li>
+            <li>
+                <a class="sidebar-menu__link" ui-sref="videos">
+                    <i class="fa fa-fw fa-youtube"></i>
+                    <span> Youtube </span>
+                </a>
+            </li>
+        </ul>
+        <ul class="main-nav--desk-and-down" ng-hide="isLoggedIn()">
+            <li>
+                <a ui-sref="register" class="sidebar-menu__link" lx-ripple="white">Registrate</a>
+            </li>
+            <li>
+                <a ui-sref="login" class="sidebar-menu__link" lx-ripple="white">Ingresa</a>
+            </li>
         </ul>
     </div>
 </div>

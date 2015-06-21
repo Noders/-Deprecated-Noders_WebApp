@@ -1,26 +1,31 @@
 <div class="main-section__content" ng-controller="UserCtrl">
     <div class="example login-box centerme">
         <div class="example__content pt0">
-            <div class="mt+++ " flex-container="column">
-                <div flex-item="6">
-                    <span class="fs-display-3 display-block text-center">Login</span>
+            <form>
+                <div class="mt+++ " flex-container="column">
+                    <div flex-item="6">
+                        <span class="fs-display-3 display-block text-center">Login</span>
+                    </div>
+                    <div flex-item="6">
+                        <lx-text-field label="Nombre de usuario o email">
+                            <input type="text" ng-model="username">
+                        </lx-text-field>
+                    </div>
+                    <div flex-item="6">
+                        <lx-text-field label="Contraseña">
+                            <input type="password" ng-model="password">
+                        </lx-text-field>
+                    </div>
                 </div>
-                <div flex-item="6">
-                    <lx-text-field label="Nombre de usuario o email">
-                        <input type="text" ng-model="username">
-                    </lx-text-field>
+                <div class="mt+++ " flex-container="column">
+                    <div flex-item="6" class="text-center">
+                        <button class="btn btn--l btn--green btn--raised" lx-ripple ng-click="login()">
+                            <span ng-show="processingLoading"><i class="fa fa-fw fa-spinner fa-facebook"></i>Ingresando</span>
+                            <span ng-hide="processingLoading">Ingresar</span>
+                        </button>
+                    </div>
                 </div>
-                <div flex-item="6">
-                    <lx-text-field label="Contraseña">
-                        <input type="password" ng-model="password">
-                    </lx-text-field>
-                </div>
-            </div>
-            <div class="mt+++ " flex-container="column">
-                <div flex-item="6" class="text-center">
-                    <button class=" btn btn--l btn--green btn--raised" lx-ripple ng-click="login()">Ingresar</button>
-                </div>
-            </div>
+            </form>
         </div>
     </div>
 </div>

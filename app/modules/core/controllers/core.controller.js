@@ -1,7 +1,8 @@
 export default (ngModule) => {
     ngModule
-        .controller('CoreCtrl', ['$scope', 'LoopBackAuth', '$location', 'Noder',
-            function($scope, LoopBackAuth, $location, Noder) {
+        .controller('CoreCtrl', ['$scope', 'LoopBackAuth', '$location', 'Noder', '$rootScope', 'Sidebar',
+            function($scope, LoopBackAuth, $location, Noder, $rootScope, Sidebar) {
+                $scope.Sidebar = Sidebar;
                 $scope.isLoggedIn = function() {
                     if (LoopBackAuth.currentUserId) {
                         return true;
@@ -18,8 +19,11 @@ export default (ngModule) => {
                     });
                 }
 
-                console.log($location)
 
+                $rootScope.$on('$stateChangeSuccess',
+                    function(event, toState, toParams, fromState, fromParams) {
+                        $scope.Sidebar.hideSideBar();
+                    });
 
 
                 $scope.auth = LoopBackAuth;

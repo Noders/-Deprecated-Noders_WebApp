@@ -1,19 +1,22 @@
-<header class="header bgc-green-600">
+<header class="header bgc-blue-grey-800">
     <div class="menubar">
         <button class="btn btn--m btn--icon btn--white" lx-ripple="white" ng-click="Sidebar.toggleSidebar()">
             <i class="mdi mdi-menu"></i>
         </button>
     </div>
+
     <h1 class="main-logo">
-        <a href="/" class="main-logo__link" lx-ripple="white">
+        <a ui-sref="home"  class="main-logo__link" lx-ripple="white">
+            <img src="https://cloud.githubusercontent.com/assets/952992/7741471/83eb835e-ff55-11e4-9104-fffde4889bec.png">
         </a>
     </h1>
-    <nav class="main-nav main-nav--lap-and-up" ng-hide="isLoggedIn()">
+    <nav class="main-nav main-nav--desk-and-up" ng-hide="isLoggedIn()">
         <ul>
             <li><a ui-sref="register" class="main-nav__link" lx-ripple="white">Registrate</a></li>
             <li><a ui-sref="login" class="main-nav__link" lx-ripple="white">Ingresa</a></li>
         </ul>
     </nav>
+
     <nav class="main-nav " ng-show="isLoggedIn()">
         <lx-dropdown position="right" from-top>
             <button class="btn btn--m btn--white btn--icon" lx-ripple="white" lx-dropdown-toggle>

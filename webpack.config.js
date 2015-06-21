@@ -3,19 +3,18 @@ var path = require("path");
 var ngAnnotatePlugin = require('ng-annotate-webpack-plugin');
 var BowerWebpackPlugin = require('bower-webpack-plugin');
 
-
 module.exports = {
     context: __dirname + '/app',
-    entry: './index.js',
+    entry: ['webpack/hot/dev-server', './index.js'],
     output: {
         path: __dirname + '/app',
         filename: 'dist/noders.js',
-        pathinfo:true
+        pathinfo: true
     },
     resolve: {
         modulesDirectories: ['app/bower_components', 'node_modules']
     },
-    devtool: 'eval' ,
+    devtool: 'eval',
     module: {
         noParse: [
             /[\/\\]node_modules[\/\\]angular[\/\\]angular\.js$/

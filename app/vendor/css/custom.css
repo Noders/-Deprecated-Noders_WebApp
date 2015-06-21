@@ -5,3 +5,15 @@
 .centerme{
 	margin: 0 auto;
 }
+
+@media screen and (max-width: 1023px) {
+    .main-nav--desk-and-up {
+        display: none;
+    }
+}
+
+@media screen and (min-width: 1024px) {
+    .main-nav--desk-and-down {
+        display: none;
+    }
+}

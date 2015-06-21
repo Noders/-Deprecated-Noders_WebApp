@@ -7,10 +7,20 @@ export default (ngModule) => {
                 sidebarIsShown = !sidebarIsShown;
             }
 
+            function hideSideBar(){
+                sidebarIsShown = false;
+            }
+
+            function showSideBar(){
+                sidebarIsShown = true;
+            }
+
             return {
                 isSidebarShown: function() {
                     return sidebarIsShown;
                 },
+                hideSideBar: hideSideBar,
+                showSideBar: showSideBar,
                 toggleSidebar: toggleSidebar
             };
         });

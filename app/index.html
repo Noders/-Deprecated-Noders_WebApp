@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html class="bgc-blue-grey-900 colors__variable">
 
 <head>
     <meta charset="utf-8">
@@ -11,8 +11,8 @@
 <body ng-app="app" ng-strict-di ng-controller="CoreCtrl">
     <header-bar ng-controller='HeaderCtrl'></header-bar>
     <div class="main">
-        <navigation-bar ng-controller='SidebarCtrl' ng-show="isLoggedIn()"></navigation-bar>
-        <div ui-view ng-class="{'main-section':isLoggedIn()}" ></div>
+        <navigation-bar ng-controller='SidebarCtrl'></navigation-bar>
+        <div ui-view class="main-section" ng-class="{'main-section':isLoggedIn()}" ></div>
     </div>
     <!--div flex layout="column" tabIndex="-1" role="main" class="md-whiteframe-z2">
         <md-content ui-view flex id="content"></md-content>

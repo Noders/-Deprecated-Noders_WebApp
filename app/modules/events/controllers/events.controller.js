@@ -47,7 +47,6 @@ export default (ngModule) => {
                         cancel: 'No borrar',
                         ok: 'Si, Borralo de la existencia!'
                     }, function(answer) {
-                        console.log(answer);
                         if (answer) {
                             $scope.evento.activo = false;
                             Evento.prototype$updateAttributes({
@@ -55,7 +54,6 @@ export default (ngModule) => {
                                 }, $scope.evento)
                                 .$promise
                                 .then(function(data) {
-                                    console.log(data);
                                 });
                         };
 
@@ -77,7 +75,6 @@ export default (ngModule) => {
                         }, $scope.evento)
                         .$promise
                         .then(function(data) {
-                            console.log(data);
                             LxNotificationService.success('Evento actualizado');
                         });
 
@@ -104,7 +101,6 @@ export default (ngModule) => {
                 };
 
                 $scope.create = function() {
-                    console.log($scope.formData);
                     var geo = null;
                     if ($scope.formData.latitud && $scope.formData.longitud) {
                         geo = {

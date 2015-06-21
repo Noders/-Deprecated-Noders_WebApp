@@ -9,9 +9,6 @@ export default (ngModule) => {
                         return false;
                     }
                 };
-                console.log(LoopBackAuth.roles)
-
-
                 if (LoopBackAuth.currentUserId) {
                     Noder.findById({
                         'id': LoopBackAuth.currentUserId
@@ -32,11 +29,11 @@ export default (ngModule) => {
                     $http.get("https://www.googleapis.com/youtube/v3/playlistItems?part=snippet&maxResults=12&playlistId=" + id + "&key=" + "AIzaSyBo23LhSupwDkusUkKPcq0HOUvwxMgTNb8")
                         .success(function(data, err) {
                             $scope.videos = data.items;
-                            console.log($scope.videos)
+                            console.log($scope.videos);
                         }).error(function(data, err) {
-                            console.log(data)
-                        })
-                }
+                            console.log(data);
+                        });
+                };
 
                 $scope.getOne = function() {
                     $scope.video = {};
@@ -53,11 +50,11 @@ export default (ngModule) => {
                     $http.get("https://www.googleapis.com/youtube/v3/videos?part=contentDetails,snippet&maxResults=12&id=" + $scope.video.id + "&key=" + "AIzaSyBo23LhSupwDkusUkKPcq0HOUvwxMgTNb8")
                         .success(function(data, err) {
                             $scope.video.data = data.items[0];
-                            console.log($scope.video)
+                            console.log($scope.video);
                         }).error(function(data, err) {
-                            console.log(data)
-                        })
-                }
+                            console.log(data);
+                        });
+                };
             }
         ]);
 

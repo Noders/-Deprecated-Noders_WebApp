@@ -3,6 +3,11 @@ export default (ngModule) => {
         .controller('HeaderCtrl', ['$scope', '$location', 'Noder', 'LoopBackAuth', '$timeout', '$mdSidenav', '$mdUtil', 'Sidebar',
             function($scope, $location, Noder, LoopBackAuth, $timeout, $mdSidenav, $mdUtil, Sidebar) {
 
+                $scope.Sidebar = Sidebar;
+                $scope.auth = LoopBackAuth;
+                //* auth.currentUserId **/
+                $scope.error = {};
+
                 $scope.isLoggedIn = function() {
                     if (LoopBackAuth.currentUserId) {
                         return true;
@@ -17,20 +22,6 @@ export default (ngModule) => {
                     });
                 };
 
-                $scope.Sidebar = Sidebar;
-                $scope.auth = LoopBackAuth;
-                //* auth.currentUserId **/
-                $scope.error = {};
-
-                var buildToggler = function(navId) {
-                    var debounceFn = $mdUtil.debounce(function() {
-                        $mdSidenav(navId)
-                            .toggle()
-                            .then(function() {});
-                    }, 300);
-                    return debounceFn;
-                };
-                $scope.toggleSideBar = buildToggler('left');
             }
         ]);
 };

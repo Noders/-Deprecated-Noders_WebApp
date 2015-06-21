@@ -1,0 +1,3 @@
+.slack .example.centerme>div:last-child {
+    display: none;
+}
