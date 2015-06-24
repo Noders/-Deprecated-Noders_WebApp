@@ -1,19 +1,71 @@
-.login-box{
-	max-width: 450px;
+.login-box {
+    max-width: 450px;
 }
 
-.centerme{
-	margin: 0 auto;
+.centerme {
+    margin: 0 auto;
 }
 
 @media screen and (max-width: 1023px) {
     .main-nav--desk-and-up {
         display: none;
     }
+    .partners .partner {
+        display: inline-block;
+    }
+    .noders .noder {
+        display: inline-block;
+    }
+    .partners .partner .imagen {
+        max-width: 130px;
+    }
+    .noders .noder .imagen {
+        max-width: 130px;
+    }
 }
 
 @media screen and (min-width: 1024px) {
+    .partners .imagen {
+        width: 180px;
+    }
+    .noders .imagen {
+        width: 180px;
+    }
     .main-nav--desk-and-down {
         display: none;
     }
+}
+
+.partners .partner .imagen {
+    border-radius: 150px;
+    transition: border-radius 150ms;
+}
+
+.noders .noder .imagen {
+    border-radius: 150px;
+    transition: border-radius 150ms;
+}
+
+.partners .partner .imagen:hover {
+    border-radius: 25px;
+}
+
+.noders .noder .imagen:hover {
+    border-radius: 25px;
+}
+
+.animationDelay1s {
+    animation-delay: 1000ms;
+}
+
+.animationDelay2s {
+    animation-delay: 2000ms;
+}
+
+.animationDelay3s {
+    animation-delay: 3000ms;
+}
+
+.animationDelay4s {
+    animation-delay: 4000ms;
 }

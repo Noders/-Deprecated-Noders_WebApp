@@ -3,9 +3,39 @@
     margin: 0 auto;
 }
 
-.elvideo{
-	margin:0 auto;
-	width: 90% !important ;
-	height: 350px !important ;
-	display: block;
+.elvideo {
+    margin: 0 auto;
+    width: 90% !important;
+    height: 350px !important;
+    display: block;
+}
+
+.segment {
+    padding-top: 50px;
+    padding-bottom: 50px;
+}
+
+.segment.inverse {}
+
+.socialicons * {
+    text-decoration: none;
+}
+/*Banner Logo*/
+
+@media screen and (min-width: 1024px) {
+    .banner__logo img {
+        height: 160px;
+    }
+    .angular-google-map-container {
+        min-height: 400px;
+    }
+}
+
+@media screen and (max-width: 1023px) {
+    .banner__logo img {
+        height: 120px;
+    }
+    .angular-google-map-container {
+        min-height: 200px;
+    }
 }

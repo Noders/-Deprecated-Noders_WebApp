@@ -1,22 +1,60 @@
-<div class="main-section__content" ng-controller="HeaderCtrl">
-    <div class="main-section__intro pt+++ mt+++">
-        We'd love for you to contribute to our source code and to make LumX even better than it is today!
+<div class="segment logo">
+    <div class=" banner__logo mv+++">
+        <img src="https://cloud.githubusercontent.com/assets/952992/7741356/482c862a-ff54-11e4-836b-e0c5d0260f12.png" alt="" class="animated fadeInUp animationDelay1s pt+++ mt+++">
     </div>
-    <div class="main-section__content">
-        <div class="paragraph">
-            <h4 class="main-section__subtitle">Installation</h4>
-            <p>
-                The installation procedure is available in the <a href="https://github.com/lumapps/lumx/blob/master/README.md" target="_blank">README file.</a>
-            </p>
-        </div>
+    <h2 class="animated fadeInRight animationDelay2s banner__subtitle text-center">
+        Cursos gratuitos, workshops, y charlas.
+        NodeJS, Angular, StrongLoop, MongoDB
+    </h2>
+    <h2 class="animated fadeInLeft animationDelay2s banner__subtitle text-center">
+        ¿Por qué? Porque nos gusta
+    </h2>
+</div>
+<div class="segment text inverse animated fadeInRight animationDelay3s">
+    <h1 class="animated banner__subtitle text-center">
+        En Noders creamos y mantenemos una comunidad global alrededor de NodeJS y su ecosistema en LatinoAmérica y el Mundo
+    </h1>
+    <h2 class="animated banner__subtitle text-center">
+        Cursos, talleres, workshops, hackatones y presentaciones!
+    </h2>
+    <h2 class="animated banner__subtitle text-center">
+        ¡Quieres hacer algo en tu Pais? Contáctanos!
+    </h2>
+    <div class="text-center banner__subtitle socialicons">
+        <a target="_blank" href="http://www.twitter.com/noderscl">
+            <i class="fa fa-fw fa-twitter"></i>
+        </a>
+        <a target="_blank" href="https://www.facebook.com/pages/Noders/1125224240837714?fref=ts">
+            <i class="fa fa-fw fa-facebook"></i>
+        </a>
+        <a target="_blank" href="https://fforres.typeform.com/to/z2Rj7z">
+            <i class="fa fa-fw fa-slack"></i>
+        </a>
+        <a target="_blank" href="mailto:slack@noders.com">
+            <i class="fa fa-fw fa-envelope"></i>
+        </a>
     </div>
-    <div class="main-section__content">
-        <div class="paragraph">
-            <h4 class="main-section__subtitle">Guidelines</h4>
-            <p>
-                To keep LumX clean and easy to maintain by everyone, we chose to follow some guidelines.
-                <br /> You can find them in our <a href="https://github.com/lumapps/lumx/blob/master/CONTRIBUTING.md" target="_blank">GitHub repository</a>.
-            </p>
-        </div>
+</div>
+<div class="segment map">
+    <ui-gmap-google-map center="map.center" options="map.options" zoom="map.zoom">
+        <ui-gmap-markers models="map.comunidades" idkey="'id'" icon="'image'" coords="'self'" click="noderClicked">
+            <ui-gmap-windows show="show">
+                <div ng-non-bindable class="window"><a href="{{url}}" class="url" title="{{name}}">{{name}}</a></div>
+            </ui-gmap-windows>
+        </ui-gmap-markers>
+    </ui-gmap-google-map>
+</div>
+<div flex-wrap class="segment partners tc-white-1 mh++" flex-container="row">
+    <div flex-item="2" class="partner p" ng-repeat="partner in partners">
+        <a href="{{partner.url}}" target="_blank">
+            <img src="{{partner.img}}" class="imagen">
+        </a>
+    </div>
+</div>
+<div flex-wrap class="segment noders tc-white-1 mh++" flex-container="row">
+    <div flex-item="2" class="noder m" ng-repeat="noder in noders">
+        <a href="{{noder.url}}" target="_blank">
+            <img src="{{noder.img}}" class="imagen">
+        </a>
     </div>
 </div>
